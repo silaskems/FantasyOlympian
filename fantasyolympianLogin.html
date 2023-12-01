@@ -46,13 +46,28 @@
         <button id="create-user">Create Account</button>
         
         
-        <a href="#" id="forgot-password">Forgot Password?</a>
+        <a href="#" id="create-forgot-password">Forgot Password?</a>
         
         
         <a href="#" id="login-link">Back to login</a>
     </form>
     
 
+    <form class="login-container" id="password-reset" style="display:none;">
+        <h1>Reset Password</h1>
+        
+        <label for="reset-username">Username:</label>
+        <input type="text" placeholder="Username" required id="reset-username">
+        
+        <label for="reset-email">Email:</label>
+        <input type="email" placeholder="Email" required id="reset-email">
+        
+        <button id="send-reset-link">Send Reset Link</button>
+        
+        <a href="#" id="back-to-login">Back to login</a>
+    </form>
+
 </body>
 
 </html>
+
