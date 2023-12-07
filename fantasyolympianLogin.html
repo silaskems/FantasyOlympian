@@ -3,7 +3,6 @@
 
 <head>
     <meta charset="UTF-8">
-    
     <title>Fantasy Olympian - Login</title>
     <link href="fantasyolympianlogin.css" rel="stylesheet">
     <link href="general.css" rel="stylesheet">
@@ -13,56 +12,54 @@
 <body>
     
     <h1 class="Heading">Fantasy Olympics</h1>
-    <form class="login-container" id="login">
+
+    <!-- Login Form -->
+    <form class="login-container" id="login" action="login.php" method="post">
         <h1>Login</h1>
         
-        <label for="Username">Username:</label>
-        <input type="text" placeholder="Username" required id="username">
+        <label for="username">Username:</label>
+        <input type="text" placeholder="Username" required name="username" id="username">
         
         <label for="password">Password:</label>
-        <input type="password" placeholder="Password" required id="password">
+        <input type="password" placeholder="Password" required name="password" id="password">
         
-        
-        <button id="check-user">Login</button>
+        <button type="submit" id="check-user">Login</button>
         
         <a href="#" id="forgot-password">Forgot Password</a>
         <a href="#" id="create-link">Create Account</a>
-        
-
     </form>
-    <form class="login-container" id="create-account">
+
+    <!-- Account Creation Form -->
+    <form class="login-container" id="create-account" action="create_account.php" method="post">
         <h1>Create New Account</h1>
         
-        <label for="Username">Create Username:</label>
-        <input type="text" placeholder="Username" required id="c-user">
+        <label for="c-user">Create Username:</label>
+        <input type="text" placeholder="Username" required name="c-user" id="c-user">
         
-        <label for="password">Create Password:</label>
-        <input type="password" placeholder="Password" required id="c-password">
+        <label for="c-password">Create Password:</label>
+        <input type="password" placeholder="Password" required name="c-password" id="c-password">
 
-        <label for="password">Confirm Password:</label>
-        <input type="password" placeholder="Password" required id="conf-password">
+        <label for="conf-password">Confirm Password:</label>
+        <input type="password" placeholder="Password" required name="conf-password" id="conf-password">
         
-        
-        <button id="create-user">Create Account</button>
-        
+        <button type="submit" id="create-user">Create Account</button>
         
         <a href="#" id="create-forgot-password">Forgot Password?</a>
-        
         
         <a href="#" id="login-link">Back to login</a>
     </form>
     
-
-    <form class="login-container" id="password-reset" style="display:none;">
+    <!-- Password Reset Form -->
+    <form class="login-container" id="password-reset" action="reset_password.php" method="post" style="display:none;">
         <h1>Reset Password</h1>
         
         <label for="reset-username">Username:</label>
-        <input type="text" placeholder="Username" required id="reset-username">
+        <input type="text" placeholder="Username" required name="reset-username" id="reset-username">
         
         <label for="reset-email">Email:</label>
-        <input type="email" placeholder="Email" required id="reset-email">
+        <input type="email" placeholder="Email" required name="reset-email" id="reset-email">
         
-        <button id="send-reset-link">Send Reset Link</button>
+        <button type="submit" id="send-reset-link">Send Reset Link</button>
         
         <a href="#" id="back-to-login">Back to login</a>
     </form>
@@ -70,4 +67,3 @@
 </body>
 
 </html>
-
