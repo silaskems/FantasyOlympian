@@ -6,18 +6,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = password_hash($_POST["c-password"], PASSWORD_DEFAULT); // Hashing the password
 
     // Check if username already exists
-    $sql = "SELECT id FROM users WHERE username = '$username'";
-    $result = $conn->query($sql);
+    $sql_check = "SELECT userid FROM users WHERE username = '$username'";
+    $result_check = $conn->query($sql_check);
 
-    if ($result->num_rows > 0) {
+    if ($result_check === FALSE) {
+        die("Error checking username: " . $conn->error);
+    }
+
+    if ($result_check->num_rows > 0) {
         echo "Username already exists";
     } else {
-        $sql = "INSERT INTO users (username, password) VALUES ('$username', '$password')";
+        // Insert new user
+        $sql_insert = "INSERT INTO users (username, password) VALUES ('$username', '$password')";
 
-        if ($conn->query($sql) === TRUE) {
+        if ($conn->query($sql_insert) === TRUE) {
             echo "New account created successfully";
         } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
+            die("Error creating account: " . $conn->error);
         }
     }
     $conn->close();
