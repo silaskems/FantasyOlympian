@@ -1,5 +1,6 @@
 <?php
-include 'db_connect.php';
+include 'db_connect.php'; // Include your database connection file
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -22,24 +23,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $mail = new PHPMailer(true);
 
             try {
-                //Server settings
-                $mail->isSMTP();                                            
-                $mail->Host       = 'smtp.example.com';                     
-                $mail->SMTPAuth   = true;                                   
-                $mail->Username   = 'your-email@example.com';               
-                $mail->Password   = 'your-password';                        
-                $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         
-                $mail->Port       = 587;                                    
+                // SMTP configuration for Gmail
+                $mail->isSMTP();
+                $mail->Host       = 'smtp.gmail.com';
+                $mail->SMTPAuth   = true;
+                $mail->Username   = 'fantasyolympic@gmail.com';
+                $mail->Password   = 'SilasJacob123';
+                $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+                $mail->Port       = 587;
 
-                //Recipients
-                $mail->setFrom('from@example.com', 'Mailer');
-                $mail->addAddress($email, $username);     
+                // Recipients
+                $mail->setFrom('fantasyolympic@gmail.com', 'Fantasy Olympic');
+                $mail->addAddress($email, $username);
 
                 // Content
-                $mail->isHTML(true);                                  
+                $mail->isHTML(true);
                 $mail->Subject = 'Password Reset Link';
-                $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
-                $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+                
+                // Customize the email content with a reset link or instructions
+                $resetLink = 'http://yourwebsite.com/reset_password_page.php?token=unique_token';
+                $mail->Body    = 'Click <a href="' . $resetLink . '">here</a> to reset your password.';
+                
+                $mail->AltBody = 'If you cannot view this email, please contact support.';
 
                 $mail->send();
                 echo 'Reset link has been sent.';
