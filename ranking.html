@@ -1,73 +1,65 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title></title>
-        <link href="general.css" rel="stylesheet"/>
-        <link href="ranking.css" rel="stylesheet"/>
-    </head>
-    <body>
-        <header>
-            <h1></h1>
-            <img src="#">Login
-            <nav>
-                <a href="index.html">Home</a>
-                <a href="ranking.html">Ranking</a>
-                <a href="stats.html">Stats</a>
-                <a href="workshop.html">Workshop</a>
-                <a href="fantasyolympianLogin.html">Login</a>
-            </nav>
-        </header>
-        <main>
-            <div class="events"><!-- Event 1-->
-                <div class="subEvent"><!--Event1, sub event 1-->
-                    <div class="person"><!--Event 1, sub event 1, athlete 1--></div>
-                    <div class="person"><!--athlete 2--></div>
-                    <div class="person"><!--Athlete 3--></div>
-                </div>
-                <div class="subEvent"><!-- sub event 2-->
-                    <div class="person"></div>
-                    <div class="person"></div>
-                    <div class="person"></div>
-                </div>
-                <div class="subEvent"><!-- sub event 3-->
-                    <div class="person"></div>
-                    <div class="person"></div>
-                    <div class="person"></div>
-                </div>
-                <div class="subEvent"><!-- sub event 4-->
-                    <div class="person"></div>
-                    <div class="person"></div>
-                    <div class="person"></div>
-                </div>
+<head>
+    <title></title>
+    <link href="general.css" rel="stylesheet"/>
+    <link href="ranking.css" rel="stylesheet"/>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            function sortAthletes(event) {
+                const athletes = Array.from(event.querySelectorAll(".person"));
+                athletes.sort((a, b) => b.dataset.score - a.dataset.score);
+                athletes.forEach(person => event.appendChild(person));
+            }
+
+            const events = document.querySelectorAll(".events .subEvent");
+            events.forEach(sortAthletes);
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1></h1>
+        <img src="#">Login
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="ranking.html">Ranking</a>
+            <a href="stats.html">Stats</a>
+            <a href="workshop.html">Workshop</a>
+            <a href="fantasyolympianLogin.html">Login</a>
+        </nav>
+    </header>
+    <main>
+        <div class="events"><!-- Event 1-->
+            <div class="subEvent"><!--Event1, sub event 1-->
+                <div class="person" data-score="90"><!--Event 1, sub event 1, athlete 1--></div>
+                <div class="person" data-score="85"><!--athlete 2--></div>
+                <div class="person" data-score="92"><!--Athlete 3--></div>
             </div>
+            <div class="subEvent"><!-- sub event 2-->
+                <div class="person" data-score="88"></div>
+                <div class="person" data-score="91"></div>
+                <div class="person" data-score="89"></div>
+            </div>
+            <!-- Other subEvents for Event 1... -->
+        </div>
+        
         <div class="events"><!-- Event 2-->
             <div class="subEvent">
-                <div class="person"></div>
-                <div class="person"></div>
-                <div class="person"></div>
+                <div class="person" data-score="78"></div>
+                <div class="person" data-score="80"></div>
+                <div class="person" data-score="75"></div>
             </div>
             <div class="subEvent">
-                <div class="person"></div>
-                <div class="person"></div>
-                <div class="person"></div>
+                <!-- Add data-score attributes for each person -->
             </div>
-            <div class="subEvent">
-                <div class="person"></div>
-                <div class="person"></div>
-                <div class="person"></div>
-            </div>
-            <div class="subEvent">
-                <div class="person"></div>
-                <div class="person"></div>
-                <div class="person"></div>
-            </div>
+            <!-- Other subEvents for Event 2... -->
         </div>
-            
-        </main>
-        <footer>
-            <a href="about.html">About</a>
-            <a href="faq.html">Faq</a>
-            <a href="#">Contact</a>
-        </footer>
-    </body>
+    </main>
+    <footer>
+        <a href="about.html">About</a>
+        <a href="faq.html">Faq</a>
+        <a href="#">Contact</a>
+    </footer>
+</body>
 </html>
